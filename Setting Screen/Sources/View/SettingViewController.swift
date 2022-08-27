@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class ViewController: UIViewController {
+class SettingViewController: UIViewController {
 
     // MARK: - Outlets
 
@@ -17,11 +17,11 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .orange
+        view.backgroundColor = .white
         setupHierarchy()
         setupLayout()
 
-
+        title = "Настройки"
     }
 
     // MARK: - Setup
