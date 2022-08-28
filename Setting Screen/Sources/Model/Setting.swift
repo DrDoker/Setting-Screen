@@ -37,7 +37,7 @@ extension Setting {
          Setting(icon: UIImage(systemName: "faceid")!, title: "Face ID и код-пароль", imageBackgroundColor: .systemGreen),
          Setting(icon: UIImage(named: "sos")!, title: "Экстренный вызов - SOS", imageBackgroundColor: .systemRed),
          Setting(icon: UIImage(systemName: "battery.100")!, title: "Аккумулятор", imageBackgroundColor: .systemGreen),
-         Setting(icon: UIImage(systemName: "hand.raised.fill")!, title: "Конфиденциальность и безопасность", imageBackgroundColor: .systemBlue)],
+         Setting(icon: UIImage(systemName: "hand.raised.fill")!, title: "Конфиденциальность", imageBackgroundColor: .systemBlue)],
 
         [Setting(icon: UIImage(named: "appstore")!, title: "App Store", imageBackgroundColor: .systemBlue),
          Setting(icon: UIImage(systemName: "star")!, title: "Wallet и Apple Pay")]
