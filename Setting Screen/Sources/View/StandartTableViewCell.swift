@@ -36,7 +36,6 @@ class StandartTableViewCell: UITableViewCell {
     private lazy var title: UILabel = {
         let lable = UILabel()
         lable.textColor = .black
-        lable.font = UIFont.systemFont(ofSize: 15, weight: .regular)
         return lable
     }()
 
@@ -75,7 +74,7 @@ class StandartTableViewCell: UITableViewCell {
 
         icon.snp.makeConstraints { make in
             make.center.equalTo(iconImageView)
-            make.height.width.equalTo(22)
+            make.height.width.equalTo(23)
  
         }
     }

@@ -14,8 +14,21 @@ class SettingViewController: UIViewController {
 
     // MARK: - Outlets
 
+    private lazy var searchTextField: UITextField = {
+        let textField = UITextField()
+        textField.placeholder = "Поиск"
+        textField.clipsToBounds = true
+        textField.layer.cornerRadius = 10
+        textField.backgroundColor = .systemGray5
+        textField.tintColor = .systemGray
+        textField.setLeftIcon(UIImage(systemName: "magnifyingglass"))
+        textField.clearButtonMode = UITextField.ViewMode.whileEditing
+        return textField
+    }()
+
+
     private lazy var tableView: UITableView = {
-        let tableView = UITableView(frame: .zero, style: .grouped)
+        let tableView = UITableView(frame: .zero, style: .insetGrouped)
         tableView.register(StandartTableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.dataSource = self
         tableView.delegate = self
@@ -26,24 +39,34 @@ class SettingViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        title = "Настройки"
+        navigationController?.navigationBar.prefersLargeTitles = true
+        view.backgroundColor = .systemGray6
         setupHierarchy()
         setupLayout()
 
-        title = "Настройки"
         settingCells = Setting.settingCells
     }
 
     // MARK: - Setup
 
     private func setupHierarchy() {
+        view.addSubview(searchTextField)
         view.addSubview(tableView)
-
     }
 
     private func setupLayout() {
+
+        searchTextField.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(10)
+            make.left.equalTo(view).offset(20)
+            make.right.equalTo(view).offset(-20)
+            make.height.equalTo(40)
+        }
+
         tableView.snp.makeConstraints { make in
-            make.top.bottom.left.right.equalTo(view)
+            make.top.equalTo(searchTextField.snp.bottom)
+            make.left.right.bottom.equalTo(view)
         }
     }
 
@@ -81,3 +104,13 @@ extension SettingViewController: UITableViewDataSource, UITableViewDelegate {
 
 }
 
+extension UITextField {
+    func setLeftIcon(_ image: UIImage?) {
+        let iconView = UIImageView(frame: CGRect(x: 5, y: 0, width: 20, height: 20))
+        iconView.image = image
+        let iconContainerView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: 30, height: 20))
+        iconContainerView.addSubview(iconView)
+        leftView = iconContainerView
+        leftViewMode = .always
+    }
+}
