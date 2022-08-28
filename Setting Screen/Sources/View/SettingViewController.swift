@@ -10,13 +10,14 @@ import SnapKit
 
 class SettingViewController: UIViewController {
 
+    private var settingCell: [[Setting]]?
+
     // MARK: - Outlets
 
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.dataSource = self
-        tableView.rowHeight = 50
         return tableView
     }()
 
@@ -29,6 +30,7 @@ class SettingViewController: UIViewController {
         setupLayout()
 
         title = "Настройки"
+        settingCell = Setting.settingCell
     }
 
     // MARK: - Setup
@@ -50,17 +52,29 @@ class SettingViewController: UIViewController {
 }
 
 extension SettingViewController: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return settingCell?.count ?? 0
+    }
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        10
+        return settingCell?[section].count ?? 0
+    }
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        44
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell")
         guard let cell = cell else { return UITableViewCell() }
-        cell.imageView?.image = UIImage(systemName: "star")
-        cell.textLabel?.text = "Test"
+        cell.imageView?.image = settingCell?[indexPath.section][indexPath.row].icon
+        cell.textLabel?.text = settingCell?[indexPath.section][indexPath.row].title
         cell.accessoryType = .disclosureIndicator
         return cell
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 
 }
