@@ -26,10 +26,10 @@ class SettingViewController: UIViewController {
         return textField
     }()
 
-
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .insetGrouped)
         tableView.register(StandartTableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(UserInfoTableViewCell.self, forCellReuseIdentifier: "userInfoCell")
         tableView.dataSource = self
         tableView.delegate = self
         return tableView
@@ -85,21 +85,39 @@ extension SettingViewController: UITableViewDataSource, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        44
+        if indexPath.section == 0 && indexPath.row == 0 {
+            return 90
+        }
+
+        return 44
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as? StandartTableViewCell
+        let userInfoCell = tableView.dequeueReusableCell(withIdentifier: "userInfoCell") as? UserInfoTableViewCell
+
         guard let cell = cell else { return UITableViewCell() }
+        guard let userInfoCell = userInfoCell else { return UITableViewCell() }
+
         cell.settingCell = settingCells?[indexPath.section][indexPath.row]
         cell.accessoryType = .disclosureIndicator
+
+        if indexPath.section == 0 && indexPath.row == 0 {
+            userInfoCell.userInfoCell = settingCells?[indexPath.section][indexPath.row]
+            return userInfoCell
+
+        }
         return cell
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         guard let tittleText = settingCells?[indexPath.section][indexPath.row].title else { return }
         print("Вы нажали \(tittleText)")
-        tableView.deselectRow(at: indexPath, animated: true)
+
+        let detailViewController = DetailViewController()
+        detailViewController.settingCell = settingCells?[indexPath.section][indexPath.row]
+        navigationController?.pushViewController(detailViewController, animated: true)
     }
 
 }

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C513C49B28BC1D060070DBFD /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C513C49A28BC1D060070DBFD /* DetailViewController.swift */; };
+		C513C49D28BC21D60070DBFD /* UserInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C513C49C28BC21D60070DBFD /* UserInfoTableViewCell.swift */; };
 		C52787D028BADE01003CC9E1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52787CF28BADE01003CC9E1 /* AppDelegate.swift */; };
 		C52787D228BADE01003CC9E1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52787D128BADE01003CC9E1 /* SceneDelegate.swift */; };
 		C52787D428BADE01003CC9E1 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52787D328BADE01003CC9E1 /* SettingViewController.swift */; };
@@ -18,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C513C49A28BC1D060070DBFD /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		C513C49C28BC21D60070DBFD /* UserInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoTableViewCell.swift; sourceTree = "<group>"; };
 		C52787CC28BADE01003CC9E1 /* Setting Screen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Setting Screen.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C52787CF28BADE01003CC9E1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C52787D128BADE01003CC9E1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -91,6 +95,8 @@
 			children = (
 				C52787D328BADE01003CC9E1 /* SettingViewController.swift */,
 				C52787EF28BBAA16003CC9E1 /* StandartTableViewCell.swift */,
+				C513C49C28BC21D60070DBFD /* UserInfoTableViewCell.swift */,
+				C513C49A28BC1D060070DBFD /* DetailViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -206,7 +212,9 @@
 			files = (
 				C52787D428BADE01003CC9E1 /* SettingViewController.swift in Sources */,
 				C52787F028BBAA16003CC9E1 /* StandartTableViewCell.swift in Sources */,
+				C513C49D28BC21D60070DBFD /* UserInfoTableViewCell.swift in Sources */,
 				C52787D028BADE01003CC9E1 /* AppDelegate.swift in Sources */,
+				C513C49B28BC1D060070DBFD /* DetailViewController.swift in Sources */,
 				C52787EE28BB981F003CC9E1 /* Setting.swift in Sources */,
 				C52787D228BADE01003CC9E1 /* SceneDelegate.swift in Sources */,
 			);

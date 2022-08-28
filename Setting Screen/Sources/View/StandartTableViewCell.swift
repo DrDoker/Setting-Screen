@@ -13,6 +13,7 @@ class StandartTableViewCell: UITableViewCell {
         didSet {
             icon.image = settingCell?.icon
             title.text = settingCell?.title
+            additionalText.text = settingCell?.additionalText
             iconImageView.backgroundColor = settingCell?.imageBackgroundColor
         }
     }
@@ -39,6 +40,12 @@ class StandartTableViewCell: UITableViewCell {
         return lable
     }()
 
+    private lazy var additionalText: UILabel = {
+        let lable = UILabel()
+        lable.textColor = .systemGray
+        return lable
+    }()
+
     //MARK: - Initializers
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -55,6 +62,7 @@ class StandartTableViewCell: UITableViewCell {
 
     private func setupHierarchy() {
         contentView.addSubview(title)
+        contentView.addSubview(additionalText)
         contentView.addSubview(iconImageView)
         iconImageView.addSubview(icon)
     }
@@ -70,6 +78,11 @@ class StandartTableViewCell: UITableViewCell {
         title.snp.makeConstraints { make in
             make.centerY.equalTo(contentView)
             make.left.equalTo(iconImageView.snp.right).offset(20)
+        }
+
+        additionalText.snp.makeConstraints { make in
+            make.centerY.equalTo(contentView)
+            make.right.equalTo(contentView).offset(-20)
         }
 
         icon.snp.makeConstraints { make in

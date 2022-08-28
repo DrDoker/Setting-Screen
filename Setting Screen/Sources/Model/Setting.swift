@@ -10,17 +10,20 @@ import UIKit
 struct Setting: Hashable {
     var icon: UIImage
     var title: String
+    var additionalText: String?
     var imageBackgroundColor: UIColor? = .systemGray
 }
 
 extension Setting {
     static var settingCells: [[Setting]] = [
+        [Setting(icon: UIImage(named: "My")!, title: "Serhii Tkachenko", additionalText: "Apple ID, iCloud+, контент и покупки")],
+
         [Setting(icon: UIImage(systemName: "airplane")!, title: "Авиарежим", imageBackgroundColor: .systemOrange),
-         Setting(icon: UIImage(systemName: "wifi")!, title: "Wi-Fi", imageBackgroundColor: .systemBlue),
-         Setting(icon: UIImage(named: "bt")!, title: "Bluetooth", imageBackgroundColor: .systemBlue),
+         Setting(icon: UIImage(systemName: "wifi")!, title: "Wi-Fi", additionalText: "My Wifi", imageBackgroundColor: .systemBlue),
+         Setting(icon: UIImage(named: "bt")!, title: "Bluetooth", additionalText: "Вкл.", imageBackgroundColor: .systemBlue),
          Setting(icon: UIImage(systemName: "antenna.radiowaves.left.and.right")!, title: "Сотовая связь", imageBackgroundColor: .systemGreen),
          Setting(icon: UIImage(systemName: "personalhotspot")!, title: "Режим модема", imageBackgroundColor: .systemGreen),
-         Setting(icon: UIImage(named: "vpn")!, title: "VPN", imageBackgroundColor: .systemBlue)],
+         Setting(icon: UIImage(named: "vpn")!, title: "VPN", additionalText: "Не подключен",imageBackgroundColor: .systemBlue)],
 
         [Setting(icon: UIImage(systemName: "bell.badge.fill")!, title: "Уведомления", imageBackgroundColor: .systemRed),
          Setting(icon: UIImage(systemName: "speaker.wave.3.fill")!, title: "Звук, тактильные сигналы", imageBackgroundColor: .systemRed),
