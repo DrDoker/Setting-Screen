@@ -14,6 +14,7 @@
 		C52787DC28BADE03003CC9E1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C52787DA28BADE03003CC9E1 /* LaunchScreen.storyboard */; };
 		C52787EB28BAE4CE003CC9E1 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = C52787EA28BAE4CE003CC9E1 /* SnapKit */; };
 		C52787EE28BB981F003CC9E1 /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52787ED28BB981F003CC9E1 /* Setting.swift */; };
+		C52787F028BBAA16003CC9E1 /* StandartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52787EF28BBAA16003CC9E1 /* StandartTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		C52787DB28BADE03003CC9E1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C52787DD28BADE03003CC9E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C52787ED28BB981F003CC9E1 /* Setting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setting.swift; sourceTree = "<group>"; };
+		C52787EF28BBAA16003CC9E1 /* StandartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandartTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				C52787D328BADE01003CC9E1 /* SettingViewController.swift */,
+				C52787EF28BBAA16003CC9E1 /* StandartTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -202,6 +205,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C52787D428BADE01003CC9E1 /* SettingViewController.swift in Sources */,
+				C52787F028BBAA16003CC9E1 /* StandartTableViewCell.swift in Sources */,
 				C52787D028BADE01003CC9E1 /* AppDelegate.swift in Sources */,
 				C52787EE28BB981F003CC9E1 /* Setting.swift in Sources */,
 				C52787D228BADE01003CC9E1 /* SceneDelegate.swift in Sources */,

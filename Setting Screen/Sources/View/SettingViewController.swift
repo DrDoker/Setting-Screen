@@ -10,14 +10,15 @@ import SnapKit
 
 class SettingViewController: UIViewController {
 
-    private var settingCell: [[Setting]]?
+    private var settingCells: [[Setting]]?
 
     // MARK: - Outlets
 
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(StandartTableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.dataSource = self
+        tableView.delegate = self
         return tableView
     }()
 
@@ -30,7 +31,7 @@ class SettingViewController: UIViewController {
         setupLayout()
 
         title = "Настройки"
-        settingCell = Setting.settingCell
+        settingCells = Setting.settingCells
     }
 
     // MARK: - Setup
@@ -51,13 +52,13 @@ class SettingViewController: UIViewController {
 
 }
 
-extension SettingViewController: UITableViewDataSource {
+extension SettingViewController: UITableViewDataSource, UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return settingCell?.count ?? 0
+        return settingCells?.count ?? 0
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return settingCell?[section].count ?? 0
+        return settingCells?[section].count ?? 0
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -65,16 +66,18 @@ extension SettingViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell")
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as? StandartTableViewCell
         guard let cell = cell else { return UITableViewCell() }
-        cell.imageView?.image = settingCell?[indexPath.section][indexPath.row].icon
-        cell.textLabel?.text = settingCell?[indexPath.section][indexPath.row].title
+        cell.settingCell = settingCells?[indexPath.section][indexPath.row]
         cell.accessoryType = .disclosureIndicator
         return cell
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let tittleText = settingCells?[indexPath.section][indexPath.row].title else { return }
+        print("Вы нажали \(tittleText)")
         tableView.deselectRow(at: indexPath, animated: true)
     }
 
 }
+
