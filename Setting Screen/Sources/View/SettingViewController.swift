@@ -28,7 +28,7 @@ class SettingViewController: UIViewController {
 
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .insetGrouped)
-        tableView.register(StandartTableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(StandartTableViewCell.self, forCellReuseIdentifier: "standartCell")
         tableView.register(UserInfoTableViewCell.self, forCellReuseIdentifier: "userInfoCell")
         tableView.dataSource = self
         tableView.delegate = self
@@ -36,6 +36,10 @@ class SettingViewController: UIViewController {
     }()
 
     // MARK: - Lifecycle
+
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,41 +89,62 @@ extension SettingViewController: UITableViewDataSource, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.section == 0 && indexPath.row == 0 {
+        guard let cellType = settingCells?[indexPath.section][indexPath.row].type else { return 44 }
+
+        switch cellType {
+        case .userInfo:
             return 90
+        case .familyInfo:
+            return 44
+        case .standart, .cellWithSwitch:
+            return 44
         }
 
-        return 44
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as? StandartTableViewCell
-        let userInfoCell = tableView.dequeueReusableCell(withIdentifier: "userInfoCell") as? UserInfoTableViewCell
-
-        guard let cell = cell else { return UITableViewCell() }
-        guard let userInfoCell = userInfoCell else { return UITableViewCell() }
-
-        cell.settingCell = settingCells?[indexPath.section][indexPath.row]
-        cell.accessoryType = .disclosureIndicator
-
-        if indexPath.section == 0 && indexPath.row == 0 {
-            userInfoCell.userInfoCell = settingCells?[indexPath.section][indexPath.row]
-            return userInfoCell
-
-        }
-        return cell
+        guard let cell = settingCells?[indexPath.section][indexPath.row] else { return UITableViewCell() }
+        return configureCell(cell: cell, indexPath: indexPath)
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        guard let tittleText = settingCells?[indexPath.section][indexPath.row].title else { return }
-        print("Вы нажали \(tittleText)")
+        guard let cell = settingCells?[indexPath.section][indexPath.row] else { return }
+        print("Вы нажали \(cell.title)")
 
-        let detailViewController = DetailViewController()
-        detailViewController.settingCell = settingCells?[indexPath.section][indexPath.row]
-        navigationController?.pushViewController(detailViewController, animated: true)
+        switch cell.type {
+        case .cellWithSwitch:
+            return
+        case .userInfo, .familyInfo, .standart:
+            let detailViewController = DetailViewController()
+            detailViewController.settingCell = settingCells?[indexPath.section][indexPath.row]
+            navigationController?.pushViewController(detailViewController, animated: true)
+        }
     }
 
+    private func configureCell(cell: Setting, indexPath: IndexPath) -> UITableViewCell {
+        switch cell.type {
+        case .userInfo:
+            let userInfoCell = tableView.dequeueReusableCell(withIdentifier: "userInfoCell") as? UserInfoTableViewCell
+            guard let userInfoCell = userInfoCell else { return UITableViewCell() }
+            userInfoCell.userInfoCell = settingCells?[indexPath.section][indexPath.row]
+            userInfoCell.accessoryType = .disclosureIndicator
+            return userInfoCell
+        case .familyInfo:
+            return UITableViewCell()
+        case .standart:
+            let standartCell = tableView.dequeueReusableCell(withIdentifier: "standartCell") as? StandartTableViewCell
+            guard let standartCell = standartCell else { return UITableViewCell() }
+            standartCell.settingCell = settingCells?[indexPath.section][indexPath.row]
+            standartCell.accessoryType = .disclosureIndicator
+            return standartCell
+        case .cellWithSwitch:
+            let standartCell = tableView.dequeueReusableCell(withIdentifier: "standartCell") as? StandartTableViewCell
+            guard let standartCell = standartCell else { return UITableViewCell() }
+            standartCell.settingCell = settingCells?[indexPath.section][indexPath.row]
+            return standartCell
+        }
+    }
 }
 
 extension UITextField {
