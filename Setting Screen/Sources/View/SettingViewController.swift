@@ -14,16 +14,11 @@ class SettingViewController: UIViewController {
 
     // MARK: - Outlets
 
-    private lazy var searchTextField: UITextField = {
-        let textField = UITextField()
-        textField.placeholder = "Поиск"
-        textField.clipsToBounds = true
-        textField.layer.cornerRadius = 10
-        textField.backgroundColor = .systemGray5
-        textField.tintColor = .systemGray
-        textField.setLeftIcon(UIImage(systemName: "magnifyingglass"))
-        textField.clearButtonMode = UITextField.ViewMode.whileEditing
-        return textField
+    private lazy var search: UISearchController = {
+        let search = UISearchController()
+        search.searchBar.placeholder = "Поиск"
+        search.
+        return search
     }()
 
     private lazy var tableView: UITableView = {
@@ -56,27 +51,17 @@ class SettingViewController: UIViewController {
     // MARK: - Setup
 
     private func setupHierarchy() {
-        view.addSubview(searchTextField)
+        navigationItem.searchController = search
         view.addSubview(tableView)
     }
 
     private func setupLayout() {
-
-        searchTextField.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide).offset(10)
-            make.left.equalTo(view).offset(20)
-            make.right.equalTo(view).offset(-20)
-            make.height.equalTo(40)
-        }
-
         tableView.snp.makeConstraints { make in
-            make.top.equalTo(searchTextField.snp.bottom)
-            make.left.right.bottom.equalTo(view)
+            make.top.left.right.bottom.equalTo(view)
         }
     }
 
     // MARK: - Actions
-
 
 }
 
@@ -147,6 +132,7 @@ extension SettingViewController: UITableViewDataSource, UITableViewDelegate {
             let standartCell = tableView.dequeueReusableCell(withIdentifier: "standartCell") as? StandartTableViewCell
             guard let standartCell = standartCell else { return UITableViewCell() }
             standartCell.settingCell = settingCells?[indexPath.section][indexPath.row]
+            standartCell.selectionStyle = .none
             return standartCell
         }
     }
