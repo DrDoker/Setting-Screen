@@ -14,6 +14,9 @@ class StandartTableViewCell: UITableViewCell {
             if settingCell?.type == .cellWithSwitch {
                 additionalText.isHidden = true
                 cellSwitch.isHidden = false
+            } else if settingCell?.additionalText != nil {
+                additionalText.isHidden = false
+                cellSwitch.isHidden = true
             }
 
             icon.image = settingCell?.icon
@@ -115,6 +118,8 @@ class StandartTableViewCell: UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         self.accessoryType = .none
+        self.cellSwitch.isHidden = true
+        additionalText.isHidden = true
         self.settingCell = nil
     }
 }

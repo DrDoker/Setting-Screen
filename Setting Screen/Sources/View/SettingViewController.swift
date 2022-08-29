@@ -37,6 +37,10 @@ class SettingViewController: UIViewController {
 
     // MARK: - Lifecycle
 
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Настройки"
@@ -100,28 +104,7 @@ extension SettingViewController: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = settingCells?[indexPath.section][indexPath.row] else { return UITableViewCell() }
-
-        switch cell.type {
-        case .userInfo:
-            let userInfoCell = tableView.dequeueReusableCell(withIdentifier: "userInfoCell") as? UserInfoTableViewCell
-            guard let userInfoCell = userInfoCell else { return UITableViewCell() }
-            userInfoCell.userInfoCell = settingCells?[indexPath.section][indexPath.row]
-            return userInfoCell
-        case .familyInfo:
-            return UITableViewCell()
-        case .standart:
-            let standartCell = tableView.dequeueReusableCell(withIdentifier: "standartCell") as? StandartTableViewCell
-            guard let standartCell = standartCell else { return UITableViewCell() }
-            standartCell.settingCell = settingCells?[indexPath.section][indexPath.row]
-            standartCell.accessoryType = .disclosureIndicator
-            return standartCell
-        case .cellWithSwitch:
-            let standartCell = tableView.dequeueReusableCell(withIdentifier: "standartCell") as? StandartTableViewCell
-            guard let standartCell = standartCell else { return UITableViewCell() }
-            standartCell.settingCell = settingCells?[indexPath.section][indexPath.row]
-            return standartCell
-        }
-
+        return configureCell(cell: cell, indexPath: indexPath)
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -137,9 +120,31 @@ extension SettingViewController: UITableViewDataSource, UITableViewDelegate {
             detailViewController.settingCell = settingCells?[indexPath.section][indexPath.row]
             navigationController?.pushViewController(detailViewController, animated: true)
         }
-
     }
 
+    private func configureCell(cell: Setting, indexPath: IndexPath) -> UITableViewCell {
+        switch cell.type {
+        case .userInfo:
+            let userInfoCell = tableView.dequeueReusableCell(withIdentifier: "userInfoCell") as? UserInfoTableViewCell
+            guard let userInfoCell = userInfoCell else { return UITableViewCell() }
+            userInfoCell.userInfoCell = settingCells?[indexPath.section][indexPath.row]
+            userInfoCell.accessoryType = .disclosureIndicator
+            return userInfoCell
+        case .familyInfo:
+            return UITableViewCell()
+        case .standart:
+            let standartCell = tableView.dequeueReusableCell(withIdentifier: "standartCell") as? StandartTableViewCell
+            guard let standartCell = standartCell else { return UITableViewCell() }
+            standartCell.settingCell = settingCells?[indexPath.section][indexPath.row]
+            standartCell.accessoryType = .disclosureIndicator
+            return standartCell
+        case .cellWithSwitch:
+            let standartCell = tableView.dequeueReusableCell(withIdentifier: "standartCell") as? StandartTableViewCell
+            guard let standartCell = standartCell else { return UITableViewCell() }
+            standartCell.settingCell = settingCells?[indexPath.section][indexPath.row]
+            return standartCell
+        }
+    }
 }
 
 extension UITextField {

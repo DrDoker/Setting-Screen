@@ -24,7 +24,8 @@ struct Setting: Hashable {
 
 extension Setting {
     static var settingCells: [[Setting]] = [
-        [Setting(type: .userInfo , icon: UIImage(named: "My")!, title: "Serhii Tkachenko", additionalText: "Apple ID, iCloud+, контент и покупки")],
+        [Setting(type: .userInfo , icon: UIImage(named: "My")!, title: "Serhii Tkachenko", additionalText: "Apple ID, iCloud+, контент и покупки"),
+         Setting(type: .standart , icon: UIImage(named: "My")!, title: "Семья")],
 
         [Setting(type: .cellWithSwitch, icon: UIImage(systemName: "airplane")!, title: "Авиарежим", imageBackgroundColor: .systemOrange),
          Setting(type: .standart, icon: UIImage(systemName: "wifi")!, title: "Wi-Fi", additionalText: "My Wifi", imageBackgroundColor: .systemBlue),
