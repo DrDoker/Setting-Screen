@@ -11,6 +11,11 @@ class StandartTableViewCell: UITableViewCell {
 
     var settingCell: Setting? {
         didSet {
+            if settingCell?.type == .cellWithSwitch {
+                additionalText.isHidden = true
+                cellSwitch.isHidden = false
+            }
+
             icon.image = settingCell?.icon
             title.text = settingCell?.title
             additionalText.text = settingCell?.additionalText
@@ -46,6 +51,12 @@ class StandartTableViewCell: UITableViewCell {
         return lable
     }()
 
+    private lazy var cellSwitch: UISwitch = {
+        let cellSwitch = UISwitch()
+        cellSwitch.isHidden = true
+        return cellSwitch
+    }()
+
     //MARK: - Initializers
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -63,6 +74,7 @@ class StandartTableViewCell: UITableViewCell {
     private func setupHierarchy() {
         contentView.addSubview(title)
         contentView.addSubview(additionalText)
+        contentView.addSubview(cellSwitch)
         contentView.addSubview(iconImageView)
         iconImageView.addSubview(icon)
     }
@@ -75,6 +87,11 @@ class StandartTableViewCell: UITableViewCell {
             make.width.equalTo(30)
         }
 
+        icon.snp.makeConstraints { make in
+            make.center.equalTo(iconImageView)
+            make.height.width.equalTo(23)
+        }
+
         title.snp.makeConstraints { make in
             make.centerY.equalTo(contentView)
             make.left.equalTo(iconImageView.snp.right).offset(20)
@@ -85,11 +102,12 @@ class StandartTableViewCell: UITableViewCell {
             make.right.equalTo(contentView).offset(-20)
         }
 
-        icon.snp.makeConstraints { make in
-            make.center.equalTo(iconImageView)
-            make.height.width.equalTo(23)
- 
+        cellSwitch.snp.makeConstraints { make in
+            make.centerY.equalTo(contentView)
+            make.right.equalTo(contentView).offset(-20)
         }
+
+
     }
 
     // MARK: - Reuse
