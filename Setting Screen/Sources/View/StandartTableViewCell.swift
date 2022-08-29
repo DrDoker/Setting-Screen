@@ -57,6 +57,7 @@ class StandartTableViewCell: UITableViewCell {
     private lazy var cellSwitch: UISwitch = {
         let cellSwitch = UISwitch()
         cellSwitch.isHidden = true
+        cellSwitch.addTarget(self, action: #selector(switchChanged), for: .touchUpInside)
         return cellSwitch
     }()
 
@@ -109,8 +110,6 @@ class StandartTableViewCell: UITableViewCell {
             make.centerY.equalTo(contentView)
             make.right.equalTo(contentView).offset(-20)
         }
-
-
     }
 
     // MARK: - Reuse
@@ -121,5 +120,15 @@ class StandartTableViewCell: UITableViewCell {
         self.cellSwitch.isHidden = true
         additionalText.isHidden = true
         self.settingCell = nil
+    }
+
+    // MARK: - Action
+
+    @objc func switchChanged(mySwitch: UISwitch) {
+        if mySwitch.isOn {
+            print("Swinch Включен")
+        } else {
+            print("Swinch Выключен")
+        }
     }
 }

@@ -17,14 +17,9 @@ class FamilyInfoTableViewCell: UITableViewCell {
 
     //MARK: - Outlets
 
-    private lazy var iconImageView: UIView = {
-        let view = UIView()
-        return view
-    }()
-
     private lazy var firstIcon: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "anna2")
+        imageView.image = UIImage(named: "family1")
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 18
@@ -35,7 +30,7 @@ class FamilyInfoTableViewCell: UITableViewCell {
 
     private lazy var secondIcon: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "anna")
+        imageView.image = UIImage(named: "family2")
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 18
@@ -66,32 +61,27 @@ class FamilyInfoTableViewCell: UITableViewCell {
 
     private func setupHierarchy() {
         contentView.addSubview(title)
-        contentView.addSubview(iconImageView)
-        iconImageView.addSubview(firstIcon)
-        iconImageView.addSubview(secondIcon)
+        contentView.addSubview(firstIcon)
+        contentView.addSubview(secondIcon)
     }
 
     private func setupLayout() {
-        iconImageView.snp.makeConstraints { make in
+        firstIcon.snp.makeConstraints { make in
             make.centerY.equalTo(contentView)
             make.left.equalTo(contentView).offset(15)
-            make.height.equalTo(30)
-            make.width.equalTo(70)
+            make.height.width.equalTo(35)
+        }
+
+        secondIcon.snp.makeConstraints { make in
+            make.centerY.equalTo(contentView)
+            make.left.equalTo(firstIcon).offset(30)
+            make.height.width.equalTo(35)
         }
 
         title.snp.makeConstraints { make in
             make.centerY.equalTo(contentView)
             make.left.equalTo(secondIcon.snp.right).offset(25)
             make.right.equalTo(contentView).offset(-20)
-        }
-
-        firstIcon.snp.makeConstraints { make in
-            make.height.width.equalTo(35)
-        }
-
-        secondIcon.snp.makeConstraints { make in
-            make.left.equalTo(iconImageView).offset(30)
-            make.height.width.equalTo(35)
         }
     }
 
@@ -101,5 +91,12 @@ class FamilyInfoTableViewCell: UITableViewCell {
         super.prepareForReuse()
         self.accessoryType = .none
         self.settingCell = nil
+    }
+
+    // MARK: - Func
+
+    func setIcons(first: UIImage, second: UIImage) {
+        firstIcon.image = first
+        secondIcon.image = second
     }
 }
