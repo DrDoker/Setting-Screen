@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  SettingViewController.swift
 //  Setting Screen
 //
 //  Created by Serhii  on 28/08/2022.
@@ -30,6 +30,7 @@ class SettingViewController: UIViewController {
         let tableView = UITableView(frame: .zero, style: .insetGrouped)
         tableView.register(StandartTableViewCell.self, forCellReuseIdentifier: "standartCell")
         tableView.register(UserInfoTableViewCell.self, forCellReuseIdentifier: "userInfoCell")
+        tableView.register(FamilyInfoTableViewCell.self, forCellReuseIdentifier: "familyInfoCell")
         tableView.dataSource = self
         tableView.delegate = self
         return tableView
@@ -95,7 +96,7 @@ extension SettingViewController: UITableViewDataSource, UITableViewDelegate {
         case .userInfo:
             return 90
         case .familyInfo:
-            return 44
+            return 48
         case .standart, .cellWithSwitch:
             return 44
         }
@@ -131,7 +132,11 @@ extension SettingViewController: UITableViewDataSource, UITableViewDelegate {
             userInfoCell.accessoryType = .disclosureIndicator
             return userInfoCell
         case .familyInfo:
-            return UITableViewCell()
+            let familyInfoCell = tableView.dequeueReusableCell(withIdentifier: "familyInfoCell") as? FamilyInfoTableViewCell
+            guard let familyInfoCell = familyInfoCell else { return UITableViewCell() }
+            familyInfoCell.settingCell = settingCells?[indexPath.section][indexPath.row]
+            familyInfoCell.accessoryType = .disclosureIndicator
+            return familyInfoCell
         case .standart:
             let standartCell = tableView.dequeueReusableCell(withIdentifier: "standartCell") as? StandartTableViewCell
             guard let standartCell = standartCell else { return UITableViewCell() }

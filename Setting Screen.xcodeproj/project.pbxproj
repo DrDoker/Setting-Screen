@@ -17,6 +17,7 @@
 		C52787EB28BAE4CE003CC9E1 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = C52787EA28BAE4CE003CC9E1 /* SnapKit */; };
 		C52787EE28BB981F003CC9E1 /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52787ED28BB981F003CC9E1 /* Setting.swift */; };
 		C52787F028BBAA16003CC9E1 /* StandartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52787EF28BBAA16003CC9E1 /* StandartTableViewCell.swift */; };
+		C536E12528BCA6A90097ABCB /* FamilyInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C536E12428BCA6A90097ABCB /* FamilyInfoTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		C52787DD28BADE03003CC9E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C52787ED28BB981F003CC9E1 /* Setting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setting.swift; sourceTree = "<group>"; };
 		C52787EF28BBAA16003CC9E1 /* StandartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandartTableViewCell.swift; sourceTree = "<group>"; };
+		C536E12428BCA6A90097ABCB /* FamilyInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyInfoTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 				C52787EF28BBAA16003CC9E1 /* StandartTableViewCell.swift */,
 				C513C49C28BC21D60070DBFD /* UserInfoTableViewCell.swift */,
 				C513C49A28BC1D060070DBFD /* DetailViewController.swift */,
+				C536E12428BCA6A90097ABCB /* FamilyInfoTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -216,6 +219,7 @@
 				C52787D028BADE01003CC9E1 /* AppDelegate.swift in Sources */,
 				C513C49B28BC1D060070DBFD /* DetailViewController.swift in Sources */,
 				C52787EE28BB981F003CC9E1 /* Setting.swift in Sources */,
+				C536E12528BCA6A90097ABCB /* FamilyInfoTableViewCell.swift in Sources */,
 				C52787D228BADE01003CC9E1 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
