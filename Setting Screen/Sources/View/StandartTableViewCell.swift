@@ -110,8 +110,6 @@ class StandartTableViewCell: UITableViewCell {
             make.centerY.equalTo(contentView)
             make.right.equalTo(contentView).offset(-20)
         }
-
-
     }
 
     // MARK: - Reuse

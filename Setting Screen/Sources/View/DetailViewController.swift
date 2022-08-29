@@ -43,7 +43,6 @@ class DetailViewController: UIViewController {
         setupHierarchy()
         setupLayout()
         fillSetting()
-
     }
 
     // MARK: - Setup

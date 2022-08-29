@@ -42,16 +42,16 @@ extension Setting {
         [Setting(type: .standart, icon: UIImage(systemName: "gear")!, title: "Основное"),
          Setting(type: .standart, icon: UIImage(systemName: "switch.2")!, title: "Пункт управления"),
          Setting(type: .standart, icon: UIImage(systemName: "textformat.size")!, title: "Экран и яркость", imageBackgroundColor: .systemBlue),
-         Setting(type: .standart, icon: UIImage(systemName: "star")!, title: "Экран \"Домой\""),
-         Setting(type: .standart, icon: UIImage(systemName: "star")!, title: "Универсальный доступ"),
-         Setting(type: .standart, icon: UIImage(systemName: "star")!, title: "Обои"),
-         Setting(type: .standart, icon: UIImage(systemName: "star")!, title: "Siri и Поиск"),
+         Setting(type: .standart, icon: UIImage(systemName: "square.grid.3x3.bottommiddle.filled")!, title: "Экран \"Домой\"", imageBackgroundColor: .systemTeal),
+         Setting(type: .standart, icon: UIImage(systemName: "figure.wave.circle")!, title: "Универсальный доступ", imageBackgroundColor: .systemBlue),
+         Setting(type: .standart, icon: UIImage(systemName: "camera.macro")!, title: "Обои", imageBackgroundColor: .systemCyan),
+         Setting(type: .standart, icon: UIImage(named: "siri")!, title: "Siri и Поиск", imageBackgroundColor: .black),
          Setting(type: .standart, icon: UIImage(systemName: "faceid")!, title: "Face ID и код-пароль", imageBackgroundColor: .systemGreen),
          Setting(type: .standart, icon: UIImage(named: "sos")!, title: "Экстренный вызов - SOS", imageBackgroundColor: .systemRed),
          Setting(type: .standart, icon: UIImage(systemName: "battery.100")!, title: "Аккумулятор", imageBackgroundColor: .systemGreen),
          Setting(type: .standart, icon: UIImage(systemName: "hand.raised.fill")!, title: "Конфиденциальность", imageBackgroundColor: .systemBlue)],
 
         [Setting(type: .standart, icon: UIImage(named: "appstore")!, title: "App Store", imageBackgroundColor: .systemBlue),
-         Setting(type: .standart, icon: UIImage(systemName: "star")!, title: "Wallet и Apple Pay")]
+         Setting(type: .standart, icon: UIImage(named: "wallet")!, title: "Wallet и Apple Pay", imageBackgroundColor: .black)]
     ]
 }

@@ -100,7 +100,6 @@ extension SettingViewController: UITableViewDataSource, UITableViewDelegate {
         case .standart, .cellWithSwitch:
             return 44
         }
-
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -135,6 +134,7 @@ extension SettingViewController: UITableViewDataSource, UITableViewDelegate {
             let familyInfoCell = tableView.dequeueReusableCell(withIdentifier: "familyInfoCell") as? FamilyInfoTableViewCell
             guard let familyInfoCell = familyInfoCell else { return UITableViewCell() }
             familyInfoCell.settingCell = settingCells?[indexPath.section][indexPath.row]
+            familyInfoCell.setIcons(first: UIImage(named: "anna1")!, second: UIImage(named: "anna2")!)
             familyInfoCell.accessoryType = .disclosureIndicator
             return familyInfoCell
         case .standart:
