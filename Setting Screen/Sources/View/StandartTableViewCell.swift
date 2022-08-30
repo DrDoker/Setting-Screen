@@ -9,6 +9,8 @@ import UIKit
 
 class StandartTableViewCell: UITableViewCell {
 
+    static let identifier = "standartCell"
+
     var settingCell: Setting? {
         didSet {
             if settingCell?.type == .cellWithSwitch {

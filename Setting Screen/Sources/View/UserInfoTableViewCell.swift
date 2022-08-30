@@ -8,6 +8,8 @@
 import UIKit
 
 class UserInfoTableViewCell: UITableViewCell {
+
+    static let identifier = "userInfoCell"
     
     var userInfoCell: Setting? {
         didSet {

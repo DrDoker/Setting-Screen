@@ -22,9 +22,9 @@ class SettingViewController: UIViewController {
 
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .insetGrouped)
-        tableView.register(StandartTableViewCell.self, forCellReuseIdentifier: "standartCell")
-        tableView.register(UserInfoTableViewCell.self, forCellReuseIdentifier: "userInfoCell")
-        tableView.register(FamilyInfoTableViewCell.self, forCellReuseIdentifier: "familyInfoCell")
+        tableView.register(StandartTableViewCell.self, forCellReuseIdentifier: StandartTableViewCell.identifier)
+        tableView.register(UserInfoTableViewCell.self, forCellReuseIdentifier: UserInfoTableViewCell.identifier)
+        tableView.register(FamilyInfoTableViewCell.self, forCellReuseIdentifier: FamilyInfoTableViewCell.identifier)
         tableView.dataSource = self
         tableView.delegate = self
         return tableView
@@ -109,26 +109,26 @@ extension SettingViewController: UITableViewDataSource, UITableViewDelegate {
     private func configureCell(cell: Setting, indexPath: IndexPath) -> UITableViewCell {
         switch cell.type {
         case .userInfo:
-            let userInfoCell = tableView.dequeueReusableCell(withIdentifier: "userInfoCell") as? UserInfoTableViewCell
+            let userInfoCell = tableView.dequeueReusableCell(withIdentifier: UserInfoTableViewCell.identifier) as? UserInfoTableViewCell
             guard let userInfoCell = userInfoCell else { return UITableViewCell() }
             userInfoCell.userInfoCell = settingCells?[indexPath.section][indexPath.row]
             userInfoCell.accessoryType = .disclosureIndicator
             return userInfoCell
         case .familyInfo:
-            let familyInfoCell = tableView.dequeueReusableCell(withIdentifier: "familyInfoCell") as? FamilyInfoTableViewCell
+            let familyInfoCell = tableView.dequeueReusableCell(withIdentifier: FamilyInfoTableViewCell.identifier) as? FamilyInfoTableViewCell
             guard let familyInfoCell = familyInfoCell else { return UITableViewCell() }
             familyInfoCell.settingCell = settingCells?[indexPath.section][indexPath.row]
-            familyInfoCell.setIcons(first: UIImage(named: "anna1")!, second: UIImage(named: "anna2")!)
+            familyInfoCell.setIcons(first: UIImage(named: "anna1"), second: UIImage(named: "anna2"))
             familyInfoCell.accessoryType = .disclosureIndicator
             return familyInfoCell
         case .standart:
-            let standartCell = tableView.dequeueReusableCell(withIdentifier: "standartCell") as? StandartTableViewCell
+            let standartCell = tableView.dequeueReusableCell(withIdentifier: StandartTableViewCell.identifier) as? StandartTableViewCell
             guard let standartCell = standartCell else { return UITableViewCell() }
             standartCell.settingCell = settingCells?[indexPath.section][indexPath.row]
             standartCell.accessoryType = .disclosureIndicator
             return standartCell
         case .cellWithSwitch:
-            let standartCell = tableView.dequeueReusableCell(withIdentifier: "standartCell") as? StandartTableViewCell
+            let standartCell = tableView.dequeueReusableCell(withIdentifier: StandartTableViewCell.identifier) as? StandartTableViewCell
             guard let standartCell = standartCell else { return UITableViewCell() }
             standartCell.settingCell = settingCells?[indexPath.section][indexPath.row]
             standartCell.selectionStyle = .none

@@ -9,6 +9,8 @@ import UIKit
 
 class FamilyInfoTableViewCell: UITableViewCell {
 
+    static let identifier = "familyInfoCell"
+
     var settingCell: Setting? {
         didSet {
             title.text = settingCell?.title
@@ -95,7 +97,7 @@ class FamilyInfoTableViewCell: UITableViewCell {
 
     // MARK: - Func
 
-    func setIcons(first: UIImage, second: UIImage) {
+    func setIcons(first: UIImage?, second: UIImage?) {
         firstIcon.image = first
         secondIcon.image = second
     }
