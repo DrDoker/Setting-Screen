@@ -17,7 +17,6 @@ class SettingViewController: UIViewController {
     private lazy var search: UISearchController = {
         let search = UISearchController()
         search.searchBar.placeholder = "Поиск"
-        search.
         return search
     }()
 
