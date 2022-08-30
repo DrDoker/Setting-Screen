@@ -36,6 +36,13 @@ class DetailViewController: UIViewController {
         return lable
     }()
 
+    //MARK: - Initializers
+
+    convenience init(settingCell: Setting?) {
+        self.init()
+        self.settingCell = settingCell
+    }
+
     // MARK: - Lifecycle
 
     override func viewDidLoad() {

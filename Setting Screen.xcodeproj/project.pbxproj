@@ -96,10 +96,8 @@
 			isa = PBXGroup;
 			children = (
 				C52787D328BADE01003CC9E1 /* SettingViewController.swift */,
-				C52787EF28BBAA16003CC9E1 /* StandartTableViewCell.swift */,
-				C513C49C28BC21D60070DBFD /* UserInfoTableViewCell.swift */,
 				C513C49A28BC1D060070DBFD /* DetailViewController.swift */,
-				C536E12428BCA6A90097ABCB /* FamilyInfoTableViewCell.swift */,
+				C559798128BEBE8900C7E9BC /* Cells */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -135,6 +133,16 @@
 				C52787ED28BB981F003CC9E1 /* Setting.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		C559798128BEBE8900C7E9BC /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				C52787EF28BBAA16003CC9E1 /* StandartTableViewCell.swift */,
+				C513C49C28BC21D60070DBFD /* UserInfoTableViewCell.swift */,
+				C536E12428BCA6A90097ABCB /* FamilyInfoTableViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
