@@ -1,4 +1,4 @@
-#Setting-Screen
+# Setting-Screen
 This is a clone of the standard iOS settings screen (educational project). When you tap on the cell, you go to the detail view of setting.
 
 I used UIKit, NavigationController, UITableView, Custom TableViewCell and SnapKit to create a project.
