@@ -1,15 +1,14 @@
 //
-//  DetailViewController.swift
+//  DetailView.swift
 //  Setting Screen
 //
-//  Created by Serhii  on 29/08/2022.
+//  Created by Serhii  on 04/10/2022.
 //
 
 import UIKit
+import SnapKit
 
-class DetailViewController: UIViewController {
-
-    var settingCell: Setting?
+class DetailView: UIView {
 
     // MARK: - Outlets
 
@@ -38,33 +37,34 @@ class DetailViewController: UIViewController {
 
     //MARK: - Initializers
 
-    convenience init(settingCell: Setting?) {
-        self.init()
-        self.settingCell = settingCell
+    init() {
+        super.init(frame: .zero)
+        commonInit()
     }
 
-    // MARK: - Lifecycle
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        commonInit()
+    }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .white
+    private func commonInit() {
+        backgroundColor = .white
 
         setupHierarchy()
         setupLayout()
-        fillSetting()
     }
 
     // MARK: - Setup
 
     private func setupHierarchy() {
-        view.addSubview(iconView)
-        view.addSubview(detailTitleText)
+        addSubview(iconView)
+        addSubview(detailTitleText)
         iconView.addSubview(icon)
     }
 
     private func setupLayout() {
         iconView.snp.makeConstraints { make in
-            make.center.equalTo(view)
+            make.center.equalTo(snp.center)
             make.height.width.equalTo(80)
         }
 
@@ -74,12 +74,12 @@ class DetailViewController: UIViewController {
         }
 
         detailTitleText.snp.makeConstraints { make in
-            make.centerX.equalTo(view)
-            make.centerY.equalTo(view).offset(90)
+            make.centerX.equalTo(snp.centerX)
+            make.centerY.equalTo(snp.centerY).offset(90)
         }
     }
 
-    private func fillSetting() {
+    func fillSetting(settingCell: Setting?) {
         icon.image = settingCell?.icon
         detailTitleText.text = settingCell?.title
         iconView.backgroundColor = settingCell?.imageBackgroundColor

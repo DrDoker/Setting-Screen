@@ -6,9 +6,8 @@
 //
 
 import UIKit
-import SnapKit
 
-class SettingViewController: UIViewController {
+final class SettingController: UIViewController {
 
     private var settingCells: [[Setting]]?
 
@@ -61,7 +60,7 @@ class SettingViewController: UIViewController {
     }
 }
 
-extension SettingViewController: UITableViewDataSource, UITableViewDelegate {
+extension SettingController: UITableViewDataSource, UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
         return settingCells?.count ?? 0
     }
@@ -98,7 +97,7 @@ extension SettingViewController: UITableViewDataSource, UITableViewDelegate {
             return
         case .userInfo, .familyInfo, .standart:
             let settingCell = settingCells?[indexPath.section][indexPath.row]
-            let detailViewController = DetailViewController(settingCell: settingCell)
+            let detailViewController = DetailController(settingCell: settingCell)
             navigationController?.pushViewController(detailViewController, animated: true)
         }
     }
