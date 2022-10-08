@@ -10,15 +10,7 @@ import UIKit
 class UserInfoTableViewCell: UITableViewCell {
 
     static let identifier = "userInfoCell"
-    
-    var userInfoCell: Setting? {
-        didSet {
-            icon.image = userInfoCell?.icon
-            title.text = userInfoCell?.title
-            additionalText.text = userInfoCell?.additionalText
-        }
-    }
-    
+
     //MARK: - Outlets
     
     private lazy var icon: UIImageView = {
@@ -95,6 +87,13 @@ class UserInfoTableViewCell: UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         self.accessoryType = .none
-        self.userInfoCell = nil
+    }
+
+    // MARK: - Configure
+
+    func configureCell(cellModel: Setting?) {
+        icon.image = cellModel?.icon
+        title.text = cellModel?.title
+        additionalText.text = cellModel?.additionalText
     }
 }

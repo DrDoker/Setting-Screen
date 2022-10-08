@@ -72,26 +72,26 @@ extension SettingController: UITableViewDelegate, UITableViewDataSource  {
         case .userInfo:
             let userInfoCell = tableView.dequeueReusableCell(withIdentifier: UserInfoTableViewCell.identifier) as? UserInfoTableViewCell
             guard let userInfoCell = userInfoCell else { return UITableViewCell() }
-            userInfoCell.userInfoCell = cell
+            userInfoCell.configureCell(cellModel: cell)
             userInfoCell.accessoryType = .disclosureIndicator
             return userInfoCell
         case .familyInfo:
             let familyInfoCell = tableView.dequeueReusableCell(withIdentifier: FamilyInfoTableViewCell.identifier) as? FamilyInfoTableViewCell
             guard let familyInfoCell = familyInfoCell else { return UITableViewCell() }
-            familyInfoCell.settingCell = cell
+            familyInfoCell.configureCell(cellModel: cell)
             familyInfoCell.setIcons(first: UIImage(named: "anna1"), second: UIImage(named: "anna2"))
             familyInfoCell.accessoryType = .disclosureIndicator
             return familyInfoCell
         case .standart:
             let standartCell = tableView.dequeueReusableCell(withIdentifier: StandartTableViewCell.identifier) as? StandartTableViewCell
             guard let standartCell = standartCell else { return UITableViewCell() }
-            standartCell.settingCell = cell
+            standartCell.configureCell(cellModel: cell)
             standartCell.accessoryType = .disclosureIndicator
             return standartCell
         case .cellWithSwitch:
             let standartCell = tableView.dequeueReusableCell(withIdentifier: StandartTableViewCell.identifier) as? StandartTableViewCell
             guard let standartCell = standartCell else { return UITableViewCell() }
-            standartCell.settingCell = cell
+            standartCell.configureCell(cellModel: cell)
             standartCell.selectionStyle = .none
             return standartCell
         }
