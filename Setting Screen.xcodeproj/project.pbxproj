@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		C512F92028ECDD3100E90AFA /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C512F91F28ECDD3100E90AFA /* SettingView.swift */; };
 		C512F92228ECDD4300E90AFA /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C512F92128ECDD4300E90AFA /* DetailView.swift */; };
+		C512F92428F195AE00E90AFA /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C512F92328F195AE00E90AFA /* Extensions.swift */; };
 		C513C49B28BC1D060070DBFD /* DetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C513C49A28BC1D060070DBFD /* DetailController.swift */; };
 		C513C49D28BC21D60070DBFD /* UserInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C513C49C28BC21D60070DBFD /* UserInfoTableViewCell.swift */; };
 		C52787D028BADE01003CC9E1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52787CF28BADE01003CC9E1 /* AppDelegate.swift */; };
@@ -24,6 +25,7 @@
 /* Begin PBXFileReference section */
 		C512F91F28ECDD3100E90AFA /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		C512F92128ECDD4300E90AFA /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		C512F92328F195AE00E90AFA /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		C513C49A28BC1D060070DBFD /* DetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailController.swift; sourceTree = "<group>"; };
 		C513C49C28BC21D60070DBFD /* UserInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoTableViewCell.swift; sourceTree = "<group>"; };
 		C52787CC28BADE01003CC9E1 /* Setting Screen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Setting Screen.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -117,6 +119,7 @@
 				C512F91F28ECDD3100E90AFA /* SettingView.swift */,
 				C512F92128ECDD4300E90AFA /* DetailView.swift */,
 				C559798128BEBE8900C7E9BC /* Cells */,
+				C512F92328F195AE00E90AFA /* Extensions.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -240,6 +243,7 @@
 				C513C49B28BC1D060070DBFD /* DetailController.swift in Sources */,
 				C52787EE28BB981F003CC9E1 /* Setting.swift in Sources */,
 				C536E12528BCA6A90097ABCB /* FamilyInfoTableViewCell.swift in Sources */,
+				C512F92428F195AE00E90AFA /* Extensions.swift in Sources */,
 				C52787D228BADE01003CC9E1 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
