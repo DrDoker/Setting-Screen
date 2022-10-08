@@ -11,12 +11,6 @@ class FamilyInfoTableViewCell: UITableViewCell {
 
     static let identifier = "familyInfoCell"
 
-    var settingCell: Setting? {
-        didSet {
-            title.text = settingCell?.title
-        }
-    }
-
     //MARK: - Outlets
 
     private lazy var firstIcon: UIImageView = {
@@ -92,10 +86,13 @@ class FamilyInfoTableViewCell: UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         self.accessoryType = .none
-        self.settingCell = nil
     }
 
-    // MARK: - Func
+    // MARK: - Configure
+
+    func configureCell(cellModel: Setting?) {
+        title.text = cellModel?.title
+    }
 
     func setIcons(first: UIImage?, second: UIImage?) {
         firstIcon.image = first

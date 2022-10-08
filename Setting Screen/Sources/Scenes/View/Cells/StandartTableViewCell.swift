@@ -11,23 +11,6 @@ class StandartTableViewCell: UITableViewCell {
 
     static let identifier = "standartCell"
 
-    var settingCell: Setting? {
-        didSet {
-            if settingCell?.type == .cellWithSwitch {
-                additionalText.isHidden = true
-                cellSwitch.isHidden = false
-            } else if settingCell?.additionalText != nil {
-                additionalText.isHidden = false
-                cellSwitch.isHidden = true
-            }
-
-            icon.image = settingCell?.icon
-            title.text = settingCell?.title
-            additionalText.text = settingCell?.additionalText
-            iconImageView.backgroundColor = settingCell?.imageBackgroundColor
-        }
-    }
-
     //MARK: - Outlets
 
     private lazy var iconImageView: UIView = {
@@ -121,7 +104,6 @@ class StandartTableViewCell: UITableViewCell {
         self.accessoryType = .none
         self.cellSwitch.isHidden = true
         additionalText.isHidden = true
-        self.settingCell = nil
     }
 
     // MARK: - Action
@@ -132,5 +114,20 @@ class StandartTableViewCell: UITableViewCell {
         } else {
             print("Swinch Выключен")
         }
+    }
+
+    func configureCell(cellModel: Setting?)  {
+        if cellModel?.type == .cellWithSwitch {
+            additionalText.isHidden = true
+            cellSwitch.isHidden = false
+        } else if cellModel?.additionalText != nil {
+            additionalText.isHidden = false
+            cellSwitch.isHidden = true
+        }
+
+        icon.image = cellModel?.icon
+        title.text = cellModel?.title
+        additionalText.text = cellModel?.additionalText
+        iconImageView.backgroundColor = cellModel?.imageBackgroundColor
     }
 }
